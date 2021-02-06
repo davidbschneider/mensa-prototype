@@ -21,6 +21,20 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto align-items-baseline">
+
+                <x-jet-dropdown id="teamManagementDropdown">
+                    <x-slot name="trigger">
+                        {{ config('lang.locales')[App::getLocale()] }}
+                    </x-slot>
+
+                    <x-slot name="content">
+                        @foreach(config('lang.locales') as $locale => $language)
+                            <x-jet-dropdown-link href="{{ route('setlocale',$locale) }}">
+                                {{ $language }}
+                            </x-jet-dropdown-link>
+                        @endforeach
+                    </x-slot>
+                </x-jet-dropdown>
                 @if(request()->routeIs('admin.*'))
                     @auth('admin')
                         <a href="{{ route('logout') }}"

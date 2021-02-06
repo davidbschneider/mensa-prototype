@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         @livewireStyles
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/mensa_logo.svg') }}">
     </head>
     <body class="font-sans antialiased bg-light d-flex flex-column h-100">
         <div class="flex-shrink-0">
@@ -31,7 +32,7 @@
                     @endif
                     <div class="row py-2">
                         <div class="col text-center">
-                            &copy; {{ config('app.name') }} {{ \Carbon\Carbon::now()->year }}
+                            &copy; David Schneider {{ \Carbon\Carbon::now()->year }}
                         </div>
                     </div>
                 </div>
