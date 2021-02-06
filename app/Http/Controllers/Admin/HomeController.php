@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+
+class HomeController extends Controller
+{
+    /**
+     * Show the Admin dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index() {
+        return view('admin.dashboard');
+    }
+}
