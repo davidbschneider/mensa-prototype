@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('about', function () {
+    return view('about');
+})->name('about');
+
 Route::get('setlocale/{locale}',function($lang){
     Session::put('locale',$lang);
     return redirect()->back();
