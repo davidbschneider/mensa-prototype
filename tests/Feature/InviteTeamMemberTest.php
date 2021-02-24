@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Laravel\Jetstream\Jetstream;
-use Laravel\Jetstream\Mail\TeamInvitation;
+use App\Mail\TeamInvitation;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -28,7 +28,7 @@ class InviteTeamMemberTest extends TestCase
 
         $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
                         ->set('addTeamMemberForm', [
-                            'email' => 'test@example.com',
+                            'email' => User::factory()->create()->email,
                             'role' => 'admin',
                         ])->call('addTeamMember');
 
@@ -49,7 +49,7 @@ class InviteTeamMemberTest extends TestCase
         // Add the team member...
         $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
                         ->set('addTeamMemberForm', [
-                            'email' => 'test@example.com',
+                            'email' => User::factory()->create()->email,
                             'role' => 'admin',
                         ])->call('addTeamMember');
 

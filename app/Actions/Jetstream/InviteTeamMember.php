@@ -9,7 +9,7 @@ use Illuminate\Validation\Rule;
 use Laravel\Jetstream\Contracts\InvitesTeamMembers;
 use Laravel\Jetstream\Events\InvitingTeamMember;
 use Laravel\Jetstream\Jetstream;
-use Laravel\Jetstream\Mail\TeamInvitation;
+use App\Mail\TeamInvitation;
 use Laravel\Jetstream\Rules\Role;
 
 class InviteTeamMember implements InvitesTeamMembers
@@ -68,7 +68,7 @@ class InviteTeamMember implements InvitesTeamMembers
     protected function rules($team)
     {
         return array_filter([
-            'email' => ['required', 'email', Rule::unique('team_invitations')->where(function ($query) use ($team) {
+            'email' => ['required', 'exists:users,email', 'email', Rule::unique('team_invitations')->where(function ($query) use ($team) {
                 $query->where('team_id', $team->id);
             })],
             'role' => Jetstream::hasRoles()
