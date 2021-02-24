@@ -22,11 +22,24 @@
                 <div class="container">
                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                         <div class="row pt-2">
-                            <div class="col text-center">
-                                <a class="text-white" target="_blank" href="{{ route('policy.show') }}">{{ __('Privacy Policy') }}</a>
+                            <div class="col">
+                                <ul>
+                                    <li>
+                                        <a class="text-white" href="{{ route('admin.login') }}">
+                                            {{ __('common.Administration') }}
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="col text-center">
-                                <a class="text-white" target="_blank" href="{{ route('terms.show') }}">{{ __('Terms of Service') }}</a>
+                            <div class="col">
+                                <ul>
+                                    <li>
+                                        <a class="text-white" target="_blank" href="{{ route('policy.show') }}">{{ __('Privacy Policy') }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white" target="_blank" href="{{ route('terms.show') }}">{{ __('Terms of Service') }}</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     @endif

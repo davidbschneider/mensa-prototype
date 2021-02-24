@@ -12,9 +12,12 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @guest
+                    <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+                        {{ __('common.About') }}
+                    </x-jet-nav-link>
                 @else
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('common.Dashboard') }}
                     </x-jet-nav-link>
                 @endguest
             </ul>
